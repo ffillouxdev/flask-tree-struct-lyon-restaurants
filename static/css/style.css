@@ -1,0 +1,233 @@
+:root {
+    --primary-bg-color: #333;
+    --secondary-bg-color: #444;
+    --hover-bg-color: #555;
+    --primary-text-color: white;
+    --secondary-text-color: #bbb;
+    --hover-text-color: #ffffff;
+    --modal-bg-color: rgba(0, 0, 0, 0.5);
+    --modal-content-bg-color: white;
+    --footer-bg-color: #333;
+    --footer-border-color: #555;
+    --font-family: 'Poppins', sans-serif;
+    --button-padding: 10px 20px;
+    --footer-padding: 20px;
+    --footer-margin-top: -20px;
+    --footer-section-margin-bottom: 20px;
+    --footer-bottom-padding-top: 10px;
+    --footer-bottom-font-size: 0.8em;
+}
+
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    background-color: var(--primary-bg-color);
+    color: var(--primary-text-color);
+    height: 50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin-right: 10px;
+    display: flex;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: var(--primary-text-color);
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+.side-bar-button {
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-text-color);
+    border: none;
+    padding: var(--button-padding);
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.side-bar-button:hover {
+    background-color: var(--hover-bg-color);
+}
+
+/* Sidebar Styles */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    right: -250px; 
+    background-color: #ffffff;
+    color: black;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 20px;
+    z-index: 1001;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.sidebar-content{
+    display: flex;
+    align-items: start;
+    padding: 40px;
+    justify-content: start; 
+    padding-top: 10%;
+    flex-direction: column;
+    height: 50%;
+}
+
+.sidebar-content form{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.detail-child{
+    margin-left: 8px   ;
+}
+
+details>summary{
+    margin-left: 5px;
+}
+
+.sidebar.show {
+    right: 0; 
+}
+
+.close-sidebar {
+    cursor: pointer;
+    color: black;
+    font-size: 1.5em;
+}
+
+#map {
+    height: 90vh;
+    width: 100%;
+    position: relative;
+}
+
+.bottom-redirection-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.bottom-redirection-button button {
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-text-color);
+    padding: var(--button-padding);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.bottom-redirection-button button:hover {
+    background-color: var(--hover-bg-color);
+}
+
+
+/* Popup Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--modal-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--modal-content-bg-color);
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.close-btn {
+    float: right;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover {
+    color: var(--primary-bg-color);
+}
+
+/* Footer */
+.footer {
+    background-color: var(--footer-bg-color);
+    color: var(--primary-text-color);
+    padding: var(--footer-padding);
+    margin-top: var(--footer-margin-top);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: var(--footer-section-margin-bottom);
+}
+
+.footer-section h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: var(--primary-text-color);
+}
+
+.footer-section p, 
+.footer-section a {
+    color: var(--secondary-text-color);
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: var(--hover-text-color);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--footer-bottom-padding-top);
+    border-top: 1px solid var(--footer-border-color);
+    font-size: var(--footer-bottom-font-size);
+    color: var(--secondary-text-color);
+}

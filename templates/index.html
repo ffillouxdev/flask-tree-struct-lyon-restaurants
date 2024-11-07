@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My Website{% endblock %}
+
+{% block content %}
+<div id="map"></div>
+<p>{{prediction}}</p>
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+
+<div id="popupModal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2>Bienvenue sur Flask Tree Struct: Lyon Restaurants</h2>
+        <p>Explorez les meilleurs restaurants de Lyon à travers une structure en arbre organisée, avec des
+            informations
+            détaillées sur chaque restaurant. Utilisez la carte pour naviguer facilement entre les options, et
+            trouvez votre
+            prochaine expérience culinaire à Lyon.</p>
+    </div>
+</div>
+
++<div class="bottom-redirection-button">
+    <button onclick="scrollToFooter()">Scroll to Bottom</button>
+</div>
+<div id="tree-view"></div>
+
+{% endblock %}

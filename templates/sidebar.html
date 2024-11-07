@@ -1,0 +1,31 @@
+<aside id="sidebar" class="sidebar">
+    <div class="sidebar-header">
+        <span class="close-sidebar">&times;</span>
+        <h2>Filtre</h2>
+    </div>
+    <div class="sidebar-content">
+        <form action="">
+            <input type="text">
+            <button type="button">&sbquo;</button>
+        </form>
+        <details>
+            <summary>Lyon</summary>
+            <details class="detail-child">
+                <summary>Arrondissements</summary>
+                <div class="detail-child">
+                    <details>
+                        <summary>Sushis</summary>
+                    </details>
+                    <details>
+                        <summary>Mexicains</summary>
+                    </details>
+                    <details>
+                        <summary>Gastronomie</summary>
+                    </details>
+                </div>
+
+            </details>
+        </details>
+    </div>
+    <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
+</aside>
