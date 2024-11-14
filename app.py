@@ -63,6 +63,9 @@ def create_tree():
 def root():
     return render_template("index.html", arbre=create_tree(), ville="Lyon")
 
+@app.route("/about")
+def about():
+    return render_template("about.html", arbre=create_tree(), ville="Lyon")
 
 @app.route("/admin")
 def admin():

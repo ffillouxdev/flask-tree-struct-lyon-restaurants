@@ -1,4 +1,4 @@
-
+#db/models.py
 # modèle Arrondissement
 from db import db
 from datetime import datetime
@@ -21,7 +21,7 @@ class Restaurant(db.Model):
         db.Integer, db.ForeignKey("type_rest.idTypeRest"), nullable=False
     )
     description = db.Column(db.Text, nullable=False)
-    coords = db.Column(db.String(100), nullable=False)
+    coords = db.Column(db.String(100), nullable=False) #sous la forme "latitude,longitude"
     date_creation = db.Column(
         db.DateTime, nullable=False, default=lambda: datetime.now()
     )

@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}À propos - Lyon Restaurants{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex flex-col items-center justify-start bg-gray-100 py-10">
+    <section class="w-full max-w-7xl px-6">
+        <h2 class="text-3xl font-bold text-center mb-12">À propos de notre projet</h2>
+        <p class="text-lg text-center mb-12">
+            Découvrez les meilleurs restaurants de Lyon avec notre application. Une structure en arbre pour une navigation facile et une expérience culinaire exceptionnelle.
+        </p>
+        <div class="text-lg text-center mb-12">
+            <h3 class="text-2xl font-bold mb-4">Technologies Utilisées</h3>
+            <ul class="list-disc list-inside">
+                <li>Flask</li>
+                <li>SQLite</li>
+                <li>HTML/CSS</li>
+                <li>JavaScript</li>
+                <li>Leaflet</li>
+                <li>Tailwind CSS</li>
+            </ul>
+        </div>
+        <div class="text-lg text-center mb-12">
+            <h3 class="text-2xl font-bold mb-4">Pourquoi Flask ?</h3>
+            <p>
+                Flask a été choisi pour ce projet en raison de sa simplicité et de sa flexibilité. Il permet de créer rapidement des applications web tout en offrant la possibilité de s'étendre avec des extensions. De plus, Flask est bien adapté pour des projets de petite à moyenne taille, ce qui correspond aux besoins de ce projet.
+            </p>
+        </div>
+        <div class="text-lg text-center mb-12">
+            <h3 class="text-2xl font-bold mb-4">Couleurs Utilisées</h3>
+            <ul class="list-disc list-inside">
+            <li>Couleur de fond primaire : <span class="px-2 py-1 rounded">#333333</span></li>
+            <li>Couleur de fond secondaire : <span class="px-2 py-1 rounded">#444</span></li>
+            <li>Couleur de fond au survol : <span class="px-2 py-1 rounded">#555</span></li>
+            <li>Couleur de texte primaire : <span class="px-2 py-1 rounded">white</span></li>
+            <li>Couleur de texte secondaire : <span class="px-2 py-1 rounded">#bbbbbb</span></li>
+            <li>Couleur de texte au survol : <span class="px-2 py-1 rounded">#ffffff</span></li>
+            <li>Couleur de fond des modales : <span class="px-2 py-1 rounded">rgba(0, 0, 0, 0.5)</span></li>
+            <li>Couleur de fond du contenu des modales : <span class="px-2 py-1 rounded">white</span></li>
+            <li>Couleur de fond du footer : <span class="px-2 py-1 rounded">#333</span></li>
+            <li>Couleur de bordure du footer : <span class="px-2 py-1 rounded">#555</span></li>
+            </ul>
+        </div>
+        <div class="text-lg text-center mb-12">
+            <h3 class="text-2xl font-bold mb-4">Structures de Données</h3>
+            <ul class="list-disc list-inside">
+                <li>Noeud : Représente un noeud dans un arbre.</li>
+                <li>Pile : Implémentation d'une pile pour gérer les noeuds.</li>
+                <li>PileTree : Utilise une pile pour parcourir les arbres.</li>
+                <li>recursiveTree : Utilise des méthodes récursives pour parcourir les arbres.</li>
+            </ul>
+        </div>
+    </section>
+</div>
+{% endblock %}
