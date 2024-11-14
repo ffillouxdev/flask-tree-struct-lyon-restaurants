@@ -1,10 +1,13 @@
 <header>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+    <nav class="bg-primary h-12 py-2 flex justify-between items-center">
+        <ul class="list-none ml-2 flex m-0">
+            <li class="inline mr-2"><a href="/" class="text-primary-text-color no-underline hover:underline">Home</a>
+            </li>
+            <li class="inline mr-2"><a href="/about"
+                    class="text-primary-text-color no-underline hover:underline">About</a></li>
+            <li class="inline mr-2"><a href="/contact"
+                    class="text-primary-text-color no-underline hover:underline">Contact</a></li>
         </ul>
-        <button type="button" class="side-bar-button" onclick="toggleSidebar()">FiltreBar</button>
+        <button type="button" class="bg-secondary-bg-color text-primary-text-color border-none p-button-padding cursor-pointer mr-5 hover:bg-hover-bg-color" onclick="toggleSidebar()">FiltreBar</button>
     </nav>
 </header>

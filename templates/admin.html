@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - My Website{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex flex-col items-center justify-start bg-gray-100 py-10">
+
+    <section class="w-full max-w-7xl px-6">
+        <h2 class="text-3xl font-bold text-center mb-6">Ajouter un Restaurant</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+            {% for restaurant in restaurants %}
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold">{{ restaurant['nom'] }}</h3>
+                <p class="text-sm text-gray-500">{{ restaurant['arrondissement'] }}</p>
+                <p class="text-sm text-gray-500">{{ restaurant['type'] }}</p>
+                <p class="text-sm text-gray-500">{{ restaurant['description'] }}</p>
+                <p class="text-sm text-gray-500">{{ restaurant['coords'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <form method="POST" action="/add_restaurant">
+                <div class="mb-4">
+                    <label for="nom" class="block text-gray-700">Nom du Restaurant</label>
+                    <input type="text" id="nom" name="nom" class="w-full mt-2 p-3 border border-gray-300 rounded-md" placeholder="Ex: Le Gourmet" required>
+                </div>
+                <div class="mb-4">
+                    <label for="arrondissement" class="block text-gray-700">Arrondissement</label>
+                    <select id="arrondissement" name="arrondissement" class="w-full mt-2 p-3 border border-gray-300 rounded-md" required>
+                        {% for arrondissement in arrondissements %}
+                        <option value="{{ arrondissement['arrondissement'] }}">{{ arrondissement['arrondissement'] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="type" class="block text-gray-700">Type de Restaurant</label>
+                    <select id="type" name="type" class="w-full mt-2 p-3 border border-gray-300 rounded-md">
+                        {% for type in types %}
+                        <option value="{{ type['idTypeRest'] }}">{{ type['typeRest'] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block text-gray-700">Description</label>
+                    <textarea id="description" name="description" class="w-full mt-2 p-3 border border-gray-300 rounded-md" rows="4" placeholder="Ex: Un restaurant cosy avec une cuisine raffinée" required></textarea>
+                </div>
+                <div class="mb-4">
+                    <label for="coords" class="block text-gray-700">Coordonnées</label>
+                    <input type="text" id="coords" name="coords" class="w-full mt-2 p-3 border border-gray-300 rounded-md" placeholder="Ex: 45.764043, 4.835659" required>
+                </div>
+                <button type="submit" class="w-full py-3 bg-gray-600 text-white rounded-md hover:bg-gray-700">Ajouter</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="w-full max-w-7xl px-6 mt-16">
+        <h2 class="text-3xl font-bold text-center mb-6">Ajouter un Type de Produit</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+            {% for type in types %}
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold">{{ type['typeRest'] }}</h3>
+                <p class="text-sm text-gray-500">{{ type['description'] }}</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <form method="POST" action="/add_type">
+                <div class="mb-4">
+                    <label for="typeRest" class="block text-gray-700">Type de Produit</label>
+                    <input type="text" id="typeRest" name="typeRest" class="w-full mt-2 p-3 border border-gray-300 rounded-md" placeholder="Ex: Italien" required>
+                </div>
+                <div class="mb-4">
+                    <label for="description" class="block text-gray-700">Description</label>
+                    <textarea id="description" name="description" class="w-full mt-2 p-3 border border-gray-300 rounded-md" rows="4" placeholder="Ex: Cuisine italienne traditionnelle" required></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 bg-gray-600 text-white rounded-md hover:bg-gray-700">Ajouter</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="w-full max-w-7xl px-6 mt-16">
+        <h2 class="text-3xl font-bold text-center mb-6">Ajouter un Arrondissement</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+            {% for arrondissement in arrondissements %}
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-2xl font-semibold">{{ arrondissement['arrondissement'] }}</h3>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <form method="POST" action="/add_arrondissement">
+                <div class="mb-4">
+                    <label for="arrondissement" class="block text-gray-700">Arrondissement</label>
+                    <input type="text" id="arrondissement" name="arrondissement" class="w-full mt-2 p-3 border border-gray-300 rounded-md" placeholder="Ex: 1er" required>
+                </div>
+                <button type="submit" class="w-full py-3 bg-gray-600 text-white rounded-md hover:bg-gray-700">Ajouter</button>
+            </form>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

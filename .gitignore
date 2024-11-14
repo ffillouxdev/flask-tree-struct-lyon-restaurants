@@ -132,3 +132,6 @@ coverage.xml
 *.~*.db3
 *.~*.sdb
 *.~*.sdb3
+*.~*.swp
+
+.VSCodeCounter/

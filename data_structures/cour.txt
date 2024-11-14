@@ -1,0 +1,89 @@
+fg : fils gauche
+info : valeur du noeud
+fd : fils droit
+
+
+Parcours: 
+
+1° Visiter tous les noeuds
+2° Ne pas revisiter plusieurs fois les mêmes noeuds
+
+Parcours en profondeur:
+
+- NSgtSd : Préfixe : Noeud, Sous-arbre gauche, Sous-arbre droit
+- SgNSd : Infixe : Sous-arbre gauche, Noeud, Sous-arbre droit
+- SgSDN : Postfixe : Sous-arbre gauche, Sous-arbre droit, Noeud
+
+
+    a
+ /   \
+ b     c
+/ \    \
+d  e    f
+  / 
+  g
+ / \
+h   i
+
+dans la pile toujours le fils droit en 1er
+
+
+
+"""
+if __name__ == "__main__":
+    # fait le schéma en haut
+    h = Noeud()
+    h.info = "h"
+    
+    i = Noeud()
+    i.info = "i"
+    
+    g = Noeud()
+    g.info = "g"
+    g.fg = h
+    g.fd = i
+    
+    d = Noeud()
+    d.info = "d"
+    
+    e = Noeud()
+    e.info = "e"
+    e.fg = g
+    
+    b = Noeud()
+    b.info = "b"
+    b.fg = d
+    b.fd = e
+    
+    f = Noeud()
+    
+    f.info = "f"
+    c = Noeud()
+    c.info = "c"
+    c.fd = f
+    a = Noeud()
+    a.info = "a"
+    a.fg = b
+    a.fd = c
+    
+    piletree = PileTree(a)
+    print("Parcours prefixe")
+    print(piletree.parcours_prefixe())
+    print("affichage de la pile")
+    piletree.afficherPile()
+    
+    print("Parcours infixe")
+    print(piletree.infixe())
+    
+    print("Parcours postfixe")
+    print(piletree.postfixe())
+    
+    
+    tree = recursiveTree(a)
+    print("Parcours prefixe")
+    tree.parcours_prefixe(a)
+    print("Parcours infixe")
+    tree.parcours_infixe(a)
+    print("Parcours postfixe")
+    tree.parcours_postfixe(a)
+"""

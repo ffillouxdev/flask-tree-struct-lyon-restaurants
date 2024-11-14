@@ -3,24 +3,34 @@
 {% block title %}Home - My Website{% endblock %}
 
 {% block content %}
-<div id="map"></div>
-<p>{{prediction}}</p>
+<div id="map" class="z-0 h-spe relative"></div>
 <script src="{{ url_for('static', filename='js/map.js') }}"></script>
-
-<div id="popupModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal()">&times;</span>
-        <h2>Bienvenue sur Flask Tree Struct: Lyon Restaurants</h2>
+<div id="restaurant-data" class="hidden">
+    {% for arrondissement in arbre.racine.enfants %}
+        {% for type_resto in arrondissement.enfants %}
+            {% for restaurant in type_resto.enfants %}
+            <div class="restaurant" data-nom="{{ restaurant.info.nom }}" data-coords="{{ restaurant.info.coords }}"
+                data-description="{{ restaurant.info.description }}">
+            </div>
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+</div>
+<div id="popupModal" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg w-4/5 max-w-lg text-center">
+        <span class="text-xl cursor-pointer text-gray-500 float-right" onclick="closeModal()">&times;</span>
+        <h2 class="text-2xl font-bold mb-4 mt-6">Bienvenue sur Flask Tree Struct: Lyon Restaurants</h2>
         <p>Explorez les meilleurs restaurants de Lyon à travers une structure en arbre organisée, avec des
-            informations
-            détaillées sur chaque restaurant. Utilisez la carte pour naviguer facilement entre les options, et
-            trouvez votre
-            prochaine expérience culinaire à Lyon.</p>
+            informations détaillées sur chaque restaurant. Utilisez la carte pour naviguer facilement entre les options,
+            et
+            trouvez votre prochaine expérience culinaire à Lyon.
+        </p>
     </div>
 </div>
 
-+<div class="bottom-redirection-button">
-    <button onclick="scrollToFooter()">Scroll to Bottom</button>
+<div class="absolute bg-primary bottom-5 right-5 z-40">
+    <button class="bg-secondary-bg-color text-primary-text-color py-2 px-4 rounded hover:bg-hover-bg-color"
+        onclick="scrollToFooter()">Scroll to Bottom</button>
 </div>
 <div id="tree-view"></div>
 

@@ -1,30 +1,45 @@
-<aside id="sidebar" class="sidebar">
-    <div class="sidebar-header">
-        <span class="close-sidebar">&times;</span>
+<aside id="sidebar"
+    class="sidebar fixed top-0 right-[-250px] w-[250px] shadow-2xl shadow-black h-full bg-white text-black overflow-x-hidden transition-all duration-300 pt-5 z-[1001]">
+    <div class="sidebar-header flex justify-between p-2.5">
+        <span class="close-sidebar cursor-pointer text-black text-2xl">&times;</span>
         <h2>Filtre</h2>
     </div>
-    <div class="sidebar-content">
-        <form action="">
-            <input type="text">
-            <button type="button">&sbquo;</button>
+    <div class="sidebar-content flex flex-col items-start p-10 pt-10 h-1/2">
+        <form action="" class="flex mb-5">
+            <input type="text" class="form-input">
+            <button type="button"
+                class="side-bar-button bg-secondary-bg-color text-primary-text-color border-none p-button-padding cursor-pointer mr-5 hover:bg-hover-bg-color">&sbquo;</button>
         </form>
+        <div class="search-bar flex items-center justify-center mb-3 rounded-md border border-gray-300">
+            <input type="text" class="search-input w-full px-3 py-1 rounded-l-md" placeholder="Rechercher...">
+            <button class="search-button text-white p-2.5 rounded-r-md hover:bg-gray-300" type="submit">
+                <span>
+                    <img src="{{ url_for('static', filename='images/search-icon.png') }}" alt="search icon"
+                        class="w-5 h-4">
+                </span>
+            </button>
+        </div>
         <details>
-            <summary>Lyon</summary>
-            <details class="detail-child">
-                <summary>Arrondissements</summary>
-                <div class="detail-child">
-                    <details>
-                        <summary>Sushis</summary>
-                    </details>
-                    <details>
-                        <summary>Mexicains</summary>
-                    </details>
-                    <details>
-                        <summary>Gastronomie</summary>
-                    </details>
-                </div>
-
+            <summary class="ml-1.5">{{ville}}</summary>
+            {% for arrondissement in arbre.racine.enfants %}
+            <details class="detail-child ml-2">
+                <summary class="ml-1.5">{{ arrondissement.info }}</summary>
+                {% for type_resto in arrondissement.enfants %}
+                <details class="detail-child ml-2">
+                    <summary class="ml-1.5">{{ type_resto.info }}</summary>
+                    {% for restaurant in type_resto.enfants %}
+                    <div class="restaurant-name ml-4 hover:text-blue-500 hover:underline"
+                        data-coords="{{ restaurant.info.coords }}"
+                        data-info="{{ restaurant.info.nom }}"
+                        data-description="{{ restaurant.info.description }}"
+                        onclick="searchAndSelectRestaurant(this)">
+                        <p>{{ restaurant.info.nom }}</p>
+                    </div>
+                    {% endfor %}
+                </details>
+                {% endfor %}
             </details>
+            {% endfor %}
         </details>
     </div>
     <script src="{{ url_for('static', filename='js/sidebar.js') }}"></script>
