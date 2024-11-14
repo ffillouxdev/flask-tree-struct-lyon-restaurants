@@ -3,14 +3,17 @@ function openModal() {
     document.getElementById("popupModal").style.display = "flex";
 }
 
-// Fonction pour fermer la popup
+// Fonction pour fermer la popup et enregistrer le consentement dans localStorage
 function closeModal() {
     document.getElementById("popupModal").style.display = "none";
+    localStorage.setItem("cookieConsent", "true");
 }
 
-// Affiche la popup quand la page se charge
+// Affiche la popup si l'utilisateur n'a pas encore donné son consentement
 window.onload = function() {
-    openModal();
+    if (!localStorage.getItem("cookieConsent")) {
+        openModal();
+    }
 };
 
 function scrollToFooter() {
